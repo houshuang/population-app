@@ -100,6 +100,7 @@
     <nutella-connector connected={{connected}} id="nutellaConn" hostname="ltg.evl.uic.edu" appid="wallcology"
                        runid="default"
                        componentid="wallcology_admin" roomcast></nutella-connector>
+      <template is="dom-if" if="{{!hideMenuBar}}">
     <paper-toolbar>
 
       <div class="start">
@@ -137,7 +138,7 @@
         </div>
       </div>
     </paper-toolbar>
-
+  </template>
     <div class="vertical-section-container">
       <template is="dom-repeat" items="{{graphs}}">
         <section>
@@ -391,6 +392,11 @@
             }
           ]
         },
+        hideMenuBar: {
+          type: Boolean,
+          notify: true,
+          value: false
+        },
         graphs: {
           type: Array,
           notify: true,
@@ -518,7 +524,8 @@
           console.log('graphsChanged', changeRecord);
         }
 
-        var maxSelect = this.$.ws.maxSelections;
+        <!-- var maxSelect = this.$.ws.maxSelections; -->
+        var maxSelect = 4;
 
 
         //console.log('THIS SELECTED ITEMS: ' + this.graphs + ' max ' + maxSelect);
@@ -531,7 +538,8 @@
       },
       selectedItemsChanged: function (changeRecord) {
 
-        var maxSelect = this.$.ws.maxSelections;
+        <!-- var maxSelect = this.$.ws.maxSelections; -->
+        var maxSelect = 4;
 
 
         //console.log('THIS SELECTED ITEMS: ' + this.selectedItems + ' max ' + maxSelect);

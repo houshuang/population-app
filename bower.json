@@ -2,6 +2,7 @@
   "name": "population-app",
   "private": true,
   "dependencies": {
+    "async": "caolan/async",
     "polymer": "Polymer/polymer",
     "iron-elements": "PolymerElements/iron-elements",
     "paper-elements": "PolymerElements/paper-elements",
